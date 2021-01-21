@@ -1794,7 +1794,7 @@ nvm_get_arch() {
     aarch64) NVM_ARCH="arm64" ;;
     *) NVM_ARCH="${HOST_ARCH}" ;;
   esac
-  nvm_echo "${NVM_ARCH}"
+  nvm_echo "${NVM_ARCH}-musl"
 }
 
 nvm_get_minor_version() {
@@ -1849,7 +1849,7 @@ nvm_is_merged_node_version() {
 
 nvm_get_mirror() {
   case "${1}-${2}" in
-    node-std) nvm_echo "${NVM_NODEJS_ORG_MIRROR:-https://nodejs.org/dist}" ;;
+    node-std) nvm_echo "${NVM_NODEJS_ORG_MIRROR:-https://unofficial-builds.nodejs.org/download/release}" ;;
     iojs-std) nvm_echo "${NVM_IOJS_ORG_MIRROR:-https://iojs.org/dist}" ;;
     *)
       nvm_err 'unknown type of node.js or io.js release'
